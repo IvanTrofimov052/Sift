@@ -25,10 +25,16 @@ for m,n in matches:
 print(good)
 
 
+draw_params = dict(matchColor = (0,255,0),
+                   singlePointColor = (255,0,0),
+                   matchesMask = good,
+                   flags = 0)
 
-# cv2.drawMatchesKnn expects list of lists as matches.
-img3 = cv2.drawMatchesKnn(img1,kp1,img2,kp2,good,flags=2, outImg = None)
+img3 = cv2.drawMatchesKnn(img1,kp1,img2,kp2,matches,None,**draw_params)
 
-plt.imshow(img3),plt.show()
 
-print(matches)
+
+plt.imshow(img3,),plt.show()
+
+plt.imshow(img3, 'gray'),plt.show()
+
